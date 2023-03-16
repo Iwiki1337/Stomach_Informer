@@ -10,6 +10,12 @@ class Graph {
     }
 
     public fun CalculateTrendLine(depth : Int) : Line{
+
+        if (Points.size < 2) 
+            throw Exception("Unable to calculate trend line of graph with less than two points!");
+        if ((depth < 2) or (depth > Points.size))
+            throw Exception("The depth of trend line calculation must be in range from 2 to number of points in graph!");
+
         var s0 : Float = depth.toFloat();
         var s1 : Float = 0.0f;
         var s2 : Float = 0.0f;
